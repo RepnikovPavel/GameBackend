@@ -1,0 +1,8 @@
+IDE: microsoft visual studio 2019
+Platform: x64
+C++ Language Standard: ISO C++20 Standard
+Library Manager for Windows vcpkg-> see the link https://github.com/microsoft/vcpkg
+uWebSockets -> see the link https://github.com/uNetworking/uWebSockets (installation with vcpkg)
+SQLite -> C source code as an amalgamation, version 3.39.2. (i not using .dll and .h files. i just using .h and .c files in VS project now)
+
+
