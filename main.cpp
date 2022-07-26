@@ -7,11 +7,18 @@
 #include "GlobalVariables.h"
 #include "Serv.h"
 
-#include "sqlite/sqlite3.h"
+#include "sqlite3.h"
+
+#include "TestOpaque.h"
+
 
 int main() {
 
     sqlite3* DB;
 
+    OpaqueTestStruct* opaque_obj;
+    //opaque_obj->a;
+
+    
     return 0;
 }
