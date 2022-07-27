@@ -9,6 +9,7 @@ class Serv
 	template<class USER_DB_CONNECTION_INFO>
 	class DBConnection;
 
+
 	template<class USER_WS_CONNECTION_INFO>
 	class WSConnection;
 
@@ -16,6 +17,7 @@ class Serv
 
 	void StartListen();
 	void StopListen();
+
 
 };
 
