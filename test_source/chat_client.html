@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)https://www.boost.org/doc/libs/1_80_0/libs/beast/example/websocket/server/chat-multi/chat_client.html -->
+<html>
+
+<body>  
+
+  Server URI: <input class="draw-border" id="uri" size="47" value="ws://127.0.0.1:8080" style="margin-bottom: 5px;">
+  <button class="echo-button" id="connect">Connect</button>
+  <button class="echo-button" id="disconnect">Disconnect</button><br>
+  <pre id="messages" style="width: 600px; height: 400px; white-space: normal; overflow: auto; border: solid 1px #cccccc; margin-bottom: 5px;"></pre>
+
+  <script>
+    var ws = null;
+    function showMessage(msg) {
+      messages.innerText += msg + "\n";
+      messages.scrollTop = messages.scrollHeight - messages.clientHeight;
+    };
+    connect.onclick = function ()
+    {
+        ws = new WebSocket(uri.value);
+        ws.onopen = function (ev)
+        {
+            showMessage("[connection opened]");
+        };
+        ws.onclose = function (ev)
+        {
+            showMessage("[connection closed]");
+        };
+        ws.onmessage = function (ev)
+        {
+            showMessage(ev.data);
+        };
+        ws.onerror = function (ev)
+        {
+            showMessage("[error]");
+            console.log(ev);
+        };
+    };
+    disconnect.onclick = function() {
+      ws.close();
+    };
+  </script>
+
+
+</body>
+</html>
