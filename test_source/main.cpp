@@ -1,24 +1,14 @@
 #include "Connection.h"
-
+#include <iostream>
 int main()
 {
     ConnectionsManagerInTheCurrentThread connections_manager;
-    //drawing_manager.Init();
-    //std::cout << "some user calculations" << std::endl;
-    //drawing_manager.StopCurrentThread();
-    //std::cout << "another user calculations" << std::endl;
-    //drawing_manager.StopCurrentThread();
-    ////std::cout << "end of master thread" << std::endl;
-    //std::queue<int> queue;
-    //for (size_t i = 0; i < 10; i++)
-    //{
-    //    queue.push(i);
-    //}
-    //for (size_t i = 0; i < 10; i++)
-    //{
-    //    std::cout << queue.front();
-    //    queue.pop();
-    //}
-    //std::cout << std::endl<<queue.size();
-
+    connections_manager.StartListenServer();
+    std::vector<double> x = { 1,2,3,4,5 };
+    std::vector<double> y = { 6,7,8,9,10 };
+    for (size_t i = 0; i < 1000; i++)
+    {
+        connections_manager.PushDrawRequest(x, y);
+    }
+    connections_manager.WaitUntilAllRenderingRequestsAreSent();
 }
